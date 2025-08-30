@@ -1,0 +1,9 @@
+1. Write test script for all the other files types ( xml, json ) for
+a) row level duplicate checks
+b) column level duplicate check
+c) if duplicates founds , fail te test case and write the duplicate rows in to seperate file
+
+2. Write test script for databases for ( any database )
+a) row level duplicate checks
+b) column level duplicate check
+c) if duplicates founds , fail te test case and write the duplicate rows in to seperate file
