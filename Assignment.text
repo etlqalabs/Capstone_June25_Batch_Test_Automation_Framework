@@ -1,3 +1,5 @@
+Day 3 assignments: ( empty test functions are already defined - Just implement )
+---------------------------------------------------------------------------------
 1. Write test script for all the other files types ( xml, json ) for
 a) row level duplicate checks
 b) column level duplicate check
@@ -7,3 +9,15 @@ c) if duplicates founds , fail te test case and write the duplicate rows in to s
 a) row level duplicate checks
 b) column level duplicate check
 c) if duplicates founds , fail te test case and write the duplicate rows in to seperate file
+
+
+Day 4 assignments:
+--------------------------------------------------------------------------------------
+3. Implement the NULL values check sfor all the files and orcale source( stores) table
+ a) ON the file level
+ b) on column levels
+
+4. Implement remaining test cases for file availability check  ( structure is already in place )
+5. Implement remaining test cases for file size check ( structure is already in place )
+6. Implement Referntial integrity check for other test scenarios ( structure is already in place )
+7. Create resuable function for this referential integrity check in utilities.py
