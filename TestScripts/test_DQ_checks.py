@@ -185,6 +185,8 @@ def test_DQ_ReferentialIntegrity_check_between_stag_sales_and_fact_sales_target(
     query_actual = """select sales_id from fact_sales"""
     df_actual = pd.read_sql(query_actual, mysql_conn)
     df_mismatched = df_actual[~df_actual['sales_id'].isin(df_expected['sales_id'])]
+    df_matched = df_actual[df_actual['sales_id'].isin(df_expected['sales_id'])]
+    df_matched.to_csv("Data_matched/valid_sales_id_in_fact_sales.csv", index=False)
     if df_mismatched.empty != True:
         df_mismatched.to_csv("Data_Differences/extra_sales_id_in_fact_sales.csv",index=False)
     assert df_mismatched.empty,"There are extra sales_id in target - please invetigate"
