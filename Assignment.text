@@ -21,3 +21,8 @@ Day 4 assignments:
 5. Implement remaining test cases for file size check ( structure is already in place )
 6. Implement Referntial integrity check for other test scenarios ( structure is already in place )
 7. Create resuable function for this referential integrity check in utilities.py
+
+
+Day 5 Assignments :
+-----------------------------------------------------------------------------------------
+1. Complete the Test case for Sales_data from Linux box
