@@ -32,12 +32,14 @@ mysql_conn = create_engine(f"mysql+pymysql://{MYSQL_USER}:{MYSQL_PASSWORD}@{MYSQ
 ## Duplicate Value Checks:
 
 # Test to check row level duplication in sales_data.csv file
+@pytest.mark.DQ
 def test_sales_data_duplicate_check():
     is_duplicate = check_for_duplicate_rows_in_file("TestData/sales_data_linux.csv", "csv")
     assert is_duplicate == False ,"There are duplicates in the file"
 
 
 # Test to check column level ( sales_id) duplication in sales_data.csv file
+@pytest.mark.DQ
 def test_sales_data_duplicate_sales_id_check():
     is_duplicate = check_for_duplicate_column_in_file("TestData/sales_data_linux.csv", "csv","sales_id")
     assert is_duplicate == False ,"There are duplicates in sales_id column in the file"
@@ -96,7 +98,7 @@ def test_DQ_store_id_in_stores_oracle_table_duplicate_check():
 
 
 ## NULL Value Checks:
-
+@pytest.mark.DQ
 def test_DQ_sales_data_file_NULL_values_check():
     try:
         logger.info("NULL values check strted in sales data file...")
@@ -107,7 +109,7 @@ def test_DQ_sales_data_file_NULL_values_check():
         logger.error("Error while checking for the nulll values")
         pytest.fail("There are null values in the sales file")
 
-
+@pytest.mark.DQ
 def test_sales_data_file_NULL_values_for_region_column_check():
     try:
         logger.info("NULL values check strted in sales data file...")
@@ -125,7 +127,7 @@ def test_sales_data_file_NULL_values_for_region_column_check():
 
 
 # File existence check related test cases
-
+@pytest.mark.DQ
 def test_DQ_sales_data_file_availability():
     try:
         logger.info("sales data file availability check started....")
@@ -151,6 +153,7 @@ def test_DQ_supplier_data_file_availability():
 
 
 # File size check related test cases
+@pytest.mark.DQ
 def test_DQ_sales_data_file_size():
     try:
         logger.info("sales data file size check started....")
@@ -179,6 +182,7 @@ def test_DQ_supplier_data_file_size():
 
 
 # Ref integrity check for sales_id in fact_sales target table
+@pytest.mark.DQ
 def test_DQ_ReferentialIntegrity_check_between_stag_sales_and_fact_sales_target():
     query_expected = """select sales_id from stag_sales"""
     df_expected = pd.read_sql(query_expected,mysql_conn)

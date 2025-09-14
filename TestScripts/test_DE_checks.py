@@ -8,7 +8,7 @@ import logging
 
 # Logging configuration
 from CommonUtilities.utilities import verify_expected_as_file_to_actual_as_db, verify_expected_as_db_to_actual_as_db, \
-    verify_expected_as_s3_to_actual_as_db
+    verify_expected_as_s3_to_actual_as_db, download_sales_file_from_Linux
 
 logging.basicConfig(
     filename="LogFiles/etljob.log",
@@ -20,6 +20,7 @@ logger = logging.getLogger(__name__)
 
 
 # supplier data extraction test case
+@pytest.mark.regression
 def test_DE_supplier_data_to_staging(conect_to_mysql_database):
     try:
         logger.info("Test case for supplier data extraction has started..")
@@ -29,8 +30,10 @@ def test_DE_supplier_data_to_staging(conect_to_mysql_database):
         logger.error("Test case for supplier data extraction caused problem..")
         pytest.fail("Test case for supplier data has failed..")
 
-# Inventory data extraction test case
 
+# Inventory data extraction test case
+@pytest.mark.regression
+@pytest.mark.smoke
 def test_DE_inventory_data_to_staging(conect_to_mysql_database):
     try:
         logger.info("Test case for inventory data extraction has started..")
@@ -42,6 +45,7 @@ def test_DE_inventory_data_to_staging(conect_to_mysql_database):
         pytest.fail("Test case for inventory data has failed..")
 
 # Stores data extraction test case
+@pytest.mark.regression
 def test_DE_stores_data_to_staging(conect_to_oracle_database,conect_to_mysql_database):
     try:
         logger.info("Test case for Stores data extraction has started..")
@@ -53,11 +57,8 @@ def test_DE_stores_data_to_staging(conect_to_oracle_database,conect_to_mysql_dat
         logger.error("Test case for Stores data extraction caused problem..")
         pytest.fail("Test case for Stores data has failed..")
 
-
-
-#User_June_Batch
-#s3://jun-proj-caps-bkt/product_data/product_data.csv
-
+@pytest.mark.regression
+@pytest.mark.smoke
 # product data extraction test case
 def test_DE_product_data_to_staging(conect_to_mysql_database):
     try:
@@ -72,3 +73,16 @@ def test_DE_product_data_to_staging(conect_to_mysql_database):
         logger.error("Test case for product data extraction caused problem..")
         pytest.fail("Test case for product data has failed..")
 
+# sales data from Linux server
+@pytest.mark.smoke
+
+def test_DE_Sales_data_to_staging(conect_to_mysql_database):
+    try:
+        logger.info("Test case for Sales data extraction has started..")
+        #download_sales_file_from_Linux()
+        verify_expected_as_file_to_actual_as_db("TestData/sales_data_remote.csv", "csv", conect_to_mysql_database,
+                                                "stag_sales")
+        logger.info("Test case for Sales data extraction has completed..")
+    except Exception as e:
+        logger.error("Test case for Sales data extraction caused problem..")
+        pytest.fail("Test case for Sales data has failed..")

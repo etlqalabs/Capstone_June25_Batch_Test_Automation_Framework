@@ -9,7 +9,7 @@ import os.path
 # Logging configuration
 logging.basicConfig(
     filename="LogFile/etljob.log",
-    filemode='a', # a for append , w = overwrite
+    filemode='w', # a for append , w = overwrite
     format = '%(asctime)s-%(levelname)s-%(message)s',
     level = logging.INFO
 )
@@ -156,6 +156,7 @@ def verify_expected_as_file_to_actual_as_db(file_path,file_type,db_connection_fi
 def verify_expected_as_db_to_actual_as_db(db_engine_expected,query_expected,db_engine_actual,query_actual):
      # Read expected data
      df_expected = pd.read_sql(query_expected,db_engine_expected)
+
 
      # Read expected data
      df_actual = pd.read_sql(query_actual,db_engine_actual)
