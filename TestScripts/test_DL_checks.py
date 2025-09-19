@@ -31,11 +31,14 @@ def test_DL_Sales_summary_checks(conect_to_mysql_database):
         pytest.fail("Test case for  Sales summary data load check has failed..")
 
 
+
 def test_DL_fact_sales_checks(conect_to_mysql_database):
     try:
         logger.info("Test case for fact sales check has started..")
-        query_expected ="""select s.sales_id,s.product_id,s.store_id,s.quantity,s.total_sales_amount as total_sales,s.sale_date from sales_with_details as s"""
-        query_actual = """select sales_id,product_id,store_id,quantity,total_sales,sale_date from fact_sales"""
+        query_expected ="""select s.sales_id,s.product_id,s.store_id,s.quantity,s.total_sales_amount as total_sales,s.sale_date 
+                            from sales_with_details as s order by s.sales_id,s.product_id,s.store_id"""
+        query_actual = """select sales_id,product_id,store_id,quantity,total_sales,sale_date from fact_sales order by
+                            sales_id,product_id,store_id"""
         verify_expected_as_db_to_actual_as_db(conect_to_mysql_database, query_expected, conect_to_mysql_database, query_actual)
         logger.info("Test case for fact sales check has completed..")
     except Exception as e:
@@ -46,8 +49,8 @@ def test_DL_fact_sales_checks(conect_to_mysql_database):
 def test_DL_fact_inventory_checks(conect_to_mysql_database):
     try:
         logger.info("Test case for fact inventory check has started..")
-        query_expected ="""select product_id,store_id,quantity_on_hand,last_updated from stag_inventory"""
-        query_actual = """select product_id,store_id,quantity_on_hand,last_updated from fact_inventory"""
+        query_expected ="""select product_id,store_id,quantity_on_hand,last_updated from stag_inventory order by product_id,store_id"""
+        query_actual = """select product_id,store_id,quantity_on_hand,last_updated from fact_inventory order by product_id,store_id"""
         verify_expected_as_db_to_actual_as_db(conect_to_mysql_database, query_expected, conect_to_mysql_database, query_actual)
         logger.info("Test case for fact inventory check has completed..")
     except Exception as e:
@@ -58,11 +61,11 @@ def test_DL_fact_inventory_checks(conect_to_mysql_database):
 def test_DL_inventory_level_by_store_checks(conect_to_mysql_database):
     try:
         logger.info("Test case for  inventory_level_by_store check has started..")
-        query_expected ="""select store_id,total_inventory from aggregated_inventory_level"""
-        query_actual = """select store_id,total_inventory from inventory_levels_by_store"""
+        query_expected ="""select store_id,total_inventory from aggregated_inventory_level order by store_id,total_inventory"""
+        query_actual = """select store_id,cast(total_inventory as Double) as total_inventory from inventory_levels_by_store order by store_id,total_inventory"""
         verify_expected_as_db_to_actual_as_db(conect_to_mysql_database, query_expected, conect_to_mysql_database, query_actual)
         logger.info("Test case for inventory_level_by_store check has completed..")
     except Exception as e:
-        logger.error("Test case for inventory_level_by_storecheck caused problem..")
+        logger.error("Test case for inventory_level_by_store check caused problem..")
         pytest.fail("Test case for inventory_level_by_store check has failed..")
 

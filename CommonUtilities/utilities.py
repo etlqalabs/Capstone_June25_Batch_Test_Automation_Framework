@@ -155,12 +155,14 @@ def verify_expected_as_file_to_actual_as_db(file_path,file_type,db_connection_fi
 # Compare data between  table as expected and databse table as actual.
 def verify_expected_as_db_to_actual_as_db(db_engine_expected,query_expected,db_engine_actual,query_actual):
      # Read expected data
-     df_expected = pd.read_sql(query_expected,db_engine_expected)
+     df_expected = pd.read_sql(query_expected,db_engine_expected).astype(str)
 
 
      # Read expected data
-     df_actual = pd.read_sql(query_actual,db_engine_actual)
+     df_actual = pd.read_sql(query_actual,db_engine_actual).astype(str)
 
+     print("Expected:\n", df_expected)
+     print("Actual:\n", df_actual)
      # Compare between expected and actual data
      assert df_actual.equals(df_expected),f"expected data {query_expected} " \
                                           f"does not match with actual data {query_actual}"

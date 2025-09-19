@@ -34,14 +34,14 @@ mysql_conn = create_engine(f"mysql+pymysql://{MYSQL_USER}:{MYSQL_PASSWORD}@{MYSQ
 # Test to check row level duplication in sales_data.csv file
 @pytest.mark.DQ
 def test_sales_data_duplicate_check():
-    is_duplicate = check_for_duplicate_rows_in_file("TestData/sales_data_linux.csv", "csv")
+    is_duplicate = check_for_duplicate_rows_in_file("TestData/sales_data_remote.csv", "csv")
     assert is_duplicate == False ,"There are duplicates in the file"
 
 
 # Test to check column level ( sales_id) duplication in sales_data.csv file
 @pytest.mark.DQ
 def test_sales_data_duplicate_sales_id_check():
-    is_duplicate = check_for_duplicate_column_in_file("TestData/sales_data_linux.csv", "csv","sales_id")
+    is_duplicate = check_for_duplicate_column_in_file("TestData/sales_data_remote.csv", "csv","sales_id")
     assert is_duplicate == False ,"There are duplicates in sales_id column in the file"
 
 # Write some more tests for other columns in sales_data.csv ile
@@ -102,7 +102,7 @@ def test_DQ_store_id_in_stores_oracle_table_duplicate_check():
 def test_DQ_sales_data_file_NULL_values_check():
     try:
         logger.info("NULL values check strted in sales data file...")
-        is_null = check_for_Empty_or_NULL_values_in_file("TestData/sales_data_linux.csv", "csv")
+        is_null = check_for_Empty_or_NULL_values_in_file("TestData/sales_data_remote.csv", "csv")
         assert is_null == False, "There are NUll values in the file"
         logger.info("NULL values check completed in sales data file...")
     except Exception as e:
@@ -113,7 +113,7 @@ def test_DQ_sales_data_file_NULL_values_check():
 def test_sales_data_file_NULL_values_for_region_column_check():
     try:
         logger.info("NULL values check strted in sales data file...")
-        is_null = check_for_Empty_or_NULL_values_in_specific_column_in_file("TestData/sales_data_linux.csv", "csv","region")
+        is_null = check_for_Empty_or_NULL_values_in_specific_column_in_file("TestData/sales_data_remote.csv", "csv","region")
         assert is_null == False, "There are NUll values in the file"
         logger.info(f"NULL values check completed in sales data file for region column")
     except Exception as e:
@@ -131,7 +131,7 @@ def test_sales_data_file_NULL_values_for_region_column_check():
 def test_DQ_sales_data_file_availability():
     try:
         logger.info("sales data file availability check started....")
-        does_file_exist = check_file_exists("TestData/sales_data_linux.csv")
+        does_file_exist = check_file_exists("TestData/sales_data_remote.csv")
         assert does_file_exist == True, "Sales file doesn not exist at the source location"
         logger.info("sales data file availability check completed....")
     except Exception as e:
@@ -157,7 +157,7 @@ def test_DQ_supplier_data_file_availability():
 def test_DQ_sales_data_file_size():
     try:
         logger.info("sales data file size check started....")
-        non_zero_file_size = check_file_size("TestData/sales_data_linux.csv")
+        non_zero_file_size = check_file_size("TestData/sales_data_remote.csv")
         assert non_zero_file_size == True, "Sales file is empty"
         logger.info("sales data file size check completed....")
     except Exception as e:
