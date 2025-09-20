@@ -64,6 +64,7 @@ def test_DE_stores_data_to_staging(conect_to_oracle_database,conect_to_mysql_dat
 @pytest.mark.smoke
 # product data extraction test case
 @pytest.mark.order(2)
+@pytest.mark.skip
 def test_DE_product_data_to_staging(conect_to_mysql_database):
     try:
         logger.info("Test case for product data extraction has started..")

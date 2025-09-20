@@ -2516,3 +2516,231 @@ botocore.errorfactory.NoSuchBucket: An error occurred (NoSuchBucket) when callin
 2025-09-20 10:27:39,810-INFO-Test case for Joiner_sales_product_stores transfromaiton check has started..
 2025-09-20 10:27:39,933-INFO-Test case for Joiner_sales_product_stores transfromaiton check has completed..
 2025-09-20 10:27:39,936-INFO-mysql connection has been closed...
+2025-09-20 11:36:36,270-INFO-Found credentials in shared credentials file: ~/.aws/credentials
+2025-09-20 11:36:37,106-INFO-Mysql connection getting established...
+2025-09-20 11:36:37,125-INFO-mysql connection has been established...
+2025-09-20 11:36:37,126-INFO-Test case for product data extraction has started..
+2025-09-20 11:36:38,196-ERROR-exception raised while reading from S3 An error occurred (NoSuchBucket) when calling the GetObject operation: The specified bucket does not exist
+Traceback (most recent call last):
+  File "D:\Capstone_June_2025_Test_Automation_Framework\CommonUtilities\utilities.py", line 196, in read_file_from_s3
+    response = s3.get_object(Bucket=bucket_name,Key=file_key)
+  File "C:\Python310\lib\site-packages\botocore\client.py", line 569, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "C:\Python310\lib\site-packages\botocore\client.py", line 1023, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.errorfactory.NoSuchBucket: An error occurred (NoSuchBucket) when calling the GetObject operation: The specified bucket does not exist
+2025-09-20 11:36:38,365-ERROR-Test case for product data extraction caused problem..
+2025-09-20 11:36:38,797-INFO-mysql connection has been closed...
+2025-09-20 11:36:38,802-INFO-Oracle connection getting established...
+2025-09-20 11:36:39,292-INFO-Oracle connection has been established...
+2025-09-20 11:36:39,292-INFO-Mysql connection getting established...
+2025-09-20 11:36:39,297-INFO-mysql connection has been established...
+2025-09-20 11:36:39,298-INFO-Test case for Stores data extraction has started..
+2025-09-20 11:36:39,348-INFO-Test case for Stores data extraction has completed..
+2025-09-20 11:36:39,356-INFO-mysql connection has been closed...
+2025-09-20 11:36:39,356-INFO-Oracle connection has been closed...
+2025-09-20 11:36:39,358-INFO-Mysql connection getting established...
+2025-09-20 11:36:39,365-INFO-mysql connection has been established...
+2025-09-20 11:36:39,368-INFO-Test case for inventory data extraction has started..
+2025-09-20 11:36:39,555-INFO-Expected data is     product_id  store_id  quantity_on_hand last_updated
+0          101         1                50   2024-09-01
+1          102         1                30   2024-09-02
+2          103         2                40   2024-09-03
+3          106         3                25   2024-09-06
+4          107         1                35   2024-09-07
+5          108         2                45   2024-09-08
+6          109         3                55   2024-09-09
+7          110         3                65   2024-09-10
+8          101         4                50   2024-09-11
+9          102         4                40   2024-09-12
+10         103         5                30   2024-09-13
+11         104         5                20   2024-09-14
+12         105         6                50   2024-09-15
+13         106         6                60   2024-09-16
+14         107         7                30   2024-09-17
+15         108         7                40   2024-09-18
+16         109         8                45   2024-09-19
+17         110         8                55   2024-09-20
+18         101         9                65   2024-09-21
+19         102         9                75   2024-09-22
+20         103        10                80   2024-09-23
+21         104        10                90   2024-09-24
+22         106         2               110   2024-09-26
+23         107         3               120   2024-09-27
+24         108         4               130   2024-09-28
+25         109         5               140   2024-09-29
+26         110         6               150   2024-09-30
+27         101         7               160   2024-10-01
+28         102         8               170   2024-10-02
+29         103         9               180   2024-10-03
+2025-09-20 11:36:39,569-INFO-Actaul data is     product_id  store_id  quantity_on_hand last_updated
+0          101         1                50   2024-09-01
+1          102         1                30   2024-09-02
+2          103         2                40   2024-09-03
+3          106         3                25   2024-09-06
+4          107         1                35   2024-09-07
+5          108         2                45   2024-09-08
+6          109         3                55   2024-09-09
+7          110         3                65   2024-09-10
+8          101         4                50   2024-09-11
+9          102         4                40   2024-09-12
+10         103         5                30   2024-09-13
+11         104         5                20   2024-09-14
+12         105         6                50   2024-09-15
+13         106         6                60   2024-09-16
+14         107         7                30   2024-09-17
+15         108         7                40   2024-09-18
+16         109         8                45   2024-09-19
+17         110         8                55   2024-09-20
+18         101         9                65   2024-09-21
+19         102         9                75   2024-09-22
+20         103        10                80   2024-09-23
+21         104        10                90   2024-09-24
+22         106         2               110   2024-09-26
+23         107         3               120   2024-09-27
+24         108         4               130   2024-09-28
+25         109         5               140   2024-09-29
+26         110         6               150   2024-09-30
+27         101         7               160   2024-10-01
+28         102         8               170   2024-10-02
+29         103         9               180   2024-10-03
+2025-09-20 11:36:39,570-INFO-Test case for inventory data extraction has completed..
+2025-09-20 11:36:39,572-INFO-mysql connection has been closed...
+2025-09-20 11:36:39,574-INFO-Mysql connection getting established...
+2025-09-20 11:36:39,593-INFO-mysql connection has been established...
+2025-09-20 11:36:39,594-INFO-Test case for supplier data extraction has started..
+2025-09-20 11:36:39,638-INFO-Expected data is    supplier_id         supplier_name    contact_name  ...    country rating last_order_date
+0            1      ABC Distributors        John Doe  ...        USA    4.8      2024-11-20
+1            2     Global Goods Inc.      Jane Smith  ...     Canada    4.3      2024-11-19
+2            3   GreenTech Solutions  Robert Johnson  ...         UK    4.6      2024-11-18
+3            4              EuroWare     Emily White  ...    Germany    4.2      2024-11-22
+4            5      Pacific Products   Michael Brown  ...  Australia    4.7      2024-11-17
+5            6     Fresh Produce Co.    Sarah Taylor  ...     France    4.4      2024-11-21
+6            7  TechCore Electronics       David Lee  ...      Japan    4.9      2024-11-23
+7            8       HanYang Trading      Laura King  ...      China    4.1      2024-11-16
+8            9         Indo Supplies  James Williams  ...      India    4.3      2024-11-25
+9           10         LatAm Imports   Olivia Harris  ...     Mexico    4.5      2024-11-20
+
+[10 rows x 8 columns]
+2025-09-20 11:36:39,664-INFO-Actaul data is    supplier_id         supplier_name    contact_name  ...    country rating last_order_date
+0            1      ABC Distributors        John Doe  ...        USA    4.8      2024-11-20
+1            2     Global Goods Inc.      Jane Smith  ...     Canada    4.3      2024-11-19
+2            3   GreenTech Solutions  Robert Johnson  ...         UK    4.6      2024-11-18
+3            4              EuroWare     Emily White  ...    Germany    4.2      2024-11-22
+4            5      Pacific Products   Michael Brown  ...  Australia    4.7      2024-11-17
+5            6     Fresh Produce Co.    Sarah Taylor  ...     France    4.4      2024-11-21
+6            7  TechCore Electronics       David Lee  ...      Japan    4.9      2024-11-23
+7            8       HanYang Trading      Laura King  ...      China    4.1      2024-11-16
+8            9         Indo Supplies  James Williams  ...      India    4.3      2024-11-25
+9           10         LatAm Imports   Olivia Harris  ...     Mexico    4.5      2024-11-20
+
+[10 rows x 8 columns]
+2025-09-20 11:36:39,665-INFO-Test case for supplier data extraction has completed..
+2025-09-20 11:36:39,667-INFO-mysql connection has been closed...
+2025-09-20 11:37:41,733-INFO-Found credentials in shared credentials file: ~/.aws/credentials
+2025-09-20 11:37:42,326-INFO-Oracle connection getting established...
+2025-09-20 11:37:42,465-INFO-Oracle connection has been established...
+2025-09-20 11:37:42,465-INFO-Mysql connection getting established...
+2025-09-20 11:37:42,490-INFO-mysql connection has been established...
+2025-09-20 11:37:42,491-INFO-Test case for Stores data extraction has started..
+2025-09-20 11:37:42,519-INFO-Test case for Stores data extraction has completed..
+2025-09-20 11:37:42,521-INFO-mysql connection has been closed...
+2025-09-20 11:37:42,521-INFO-Oracle connection has been closed...
+2025-09-20 11:37:42,524-INFO-Mysql connection getting established...
+2025-09-20 11:37:42,541-INFO-mysql connection has been established...
+2025-09-20 11:37:42,542-INFO-Test case for inventory data extraction has started..
+2025-09-20 11:37:42,571-INFO-Expected data is     product_id  store_id  quantity_on_hand last_updated
+0          101         1                50   2024-09-01
+1          102         1                30   2024-09-02
+2          103         2                40   2024-09-03
+3          106         3                25   2024-09-06
+4          107         1                35   2024-09-07
+5          108         2                45   2024-09-08
+6          109         3                55   2024-09-09
+7          110         3                65   2024-09-10
+8          101         4                50   2024-09-11
+9          102         4                40   2024-09-12
+10         103         5                30   2024-09-13
+11         104         5                20   2024-09-14
+12         105         6                50   2024-09-15
+13         106         6                60   2024-09-16
+14         107         7                30   2024-09-17
+15         108         7                40   2024-09-18
+16         109         8                45   2024-09-19
+17         110         8                55   2024-09-20
+18         101         9                65   2024-09-21
+19         102         9                75   2024-09-22
+20         103        10                80   2024-09-23
+21         104        10                90   2024-09-24
+22         106         2               110   2024-09-26
+23         107         3               120   2024-09-27
+24         108         4               130   2024-09-28
+25         109         5               140   2024-09-29
+26         110         6               150   2024-09-30
+27         101         7               160   2024-10-01
+28         102         8               170   2024-10-02
+29         103         9               180   2024-10-03
+2025-09-20 11:37:42,594-INFO-Actaul data is     product_id  store_id  quantity_on_hand last_updated
+0          101         1                50   2024-09-01
+1          102         1                30   2024-09-02
+2          103         2                40   2024-09-03
+3          106         3                25   2024-09-06
+4          107         1                35   2024-09-07
+5          108         2                45   2024-09-08
+6          109         3                55   2024-09-09
+7          110         3                65   2024-09-10
+8          101         4                50   2024-09-11
+9          102         4                40   2024-09-12
+10         103         5                30   2024-09-13
+11         104         5                20   2024-09-14
+12         105         6                50   2024-09-15
+13         106         6                60   2024-09-16
+14         107         7                30   2024-09-17
+15         108         7                40   2024-09-18
+16         109         8                45   2024-09-19
+17         110         8                55   2024-09-20
+18         101         9                65   2024-09-21
+19         102         9                75   2024-09-22
+20         103        10                80   2024-09-23
+21         104        10                90   2024-09-24
+22         106         2               110   2024-09-26
+23         107         3               120   2024-09-27
+24         108         4               130   2024-09-28
+25         109         5               140   2024-09-29
+26         110         6               150   2024-09-30
+27         101         7               160   2024-10-01
+28         102         8               170   2024-10-02
+29         103         9               180   2024-10-03
+2025-09-20 11:37:42,595-INFO-Test case for inventory data extraction has completed..
+2025-09-20 11:37:42,597-INFO-mysql connection has been closed...
+2025-09-20 11:37:42,598-INFO-Mysql connection getting established...
+2025-09-20 11:37:42,618-INFO-mysql connection has been established...
+2025-09-20 11:37:42,618-INFO-Test case for supplier data extraction has started..
+2025-09-20 11:37:42,658-INFO-Expected data is    supplier_id         supplier_name    contact_name  ...    country rating last_order_date
+0            1      ABC Distributors        John Doe  ...        USA    4.8      2024-11-20
+1            2     Global Goods Inc.      Jane Smith  ...     Canada    4.3      2024-11-19
+2            3   GreenTech Solutions  Robert Johnson  ...         UK    4.6      2024-11-18
+3            4              EuroWare     Emily White  ...    Germany    4.2      2024-11-22
+4            5      Pacific Products   Michael Brown  ...  Australia    4.7      2024-11-17
+5            6     Fresh Produce Co.    Sarah Taylor  ...     France    4.4      2024-11-21
+6            7  TechCore Electronics       David Lee  ...      Japan    4.9      2024-11-23
+7            8       HanYang Trading      Laura King  ...      China    4.1      2024-11-16
+8            9         Indo Supplies  James Williams  ...      India    4.3      2024-11-25
+9           10         LatAm Imports   Olivia Harris  ...     Mexico    4.5      2024-11-20
+
+[10 rows x 8 columns]
+2025-09-20 11:37:42,687-INFO-Actaul data is    supplier_id         supplier_name    contact_name  ...    country rating last_order_date
+0            1      ABC Distributors        John Doe  ...        USA    4.8      2024-11-20
+1            2     Global Goods Inc.      Jane Smith  ...     Canada    4.3      2024-11-19
+2            3   GreenTech Solutions  Robert Johnson  ...         UK    4.6      2024-11-18
+3            4              EuroWare     Emily White  ...    Germany    4.2      2024-11-22
+4            5      Pacific Products   Michael Brown  ...  Australia    4.7      2024-11-17
+5            6     Fresh Produce Co.    Sarah Taylor  ...     France    4.4      2024-11-21
+6            7  TechCore Electronics       David Lee  ...      Japan    4.9      2024-11-23
+7            8       HanYang Trading      Laura King  ...      China    4.1      2024-11-16
+8            9         Indo Supplies  James Williams  ...      India    4.3      2024-11-25
+9           10         LatAm Imports   Olivia Harris  ...     Mexico    4.5      2024-11-20
+
+[10 rows x 8 columns]
+2025-09-20 11:37:42,688-INFO-Test case for supplier data extraction has completed..
+2025-09-20 11:37:42,690-INFO-mysql connection has been closed...
