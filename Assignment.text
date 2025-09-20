@@ -26,3 +26,10 @@ Day 4 assignments:
 Day 5 Assignments :
 -----------------------------------------------------------------------------------------
 1. Complete the Test case for Sales_data from Linux box
+
+
+Day : Final day:
+-----------------------------------------------------------------------------------------
+1) Find a way to configure email ids for reporting any failure in your test pack
+a) Try to see in Jenkins configuration
+b) Try to see if we can suppliy some arguments in pytest itself
