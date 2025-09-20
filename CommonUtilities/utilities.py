@@ -8,7 +8,7 @@ import os.path
 
 # Logging configuration
 logging.basicConfig(
-    filename="LogFile/etljob.log",
+    filename="LogFile/common_utilities.log",
     filemode='w', # a for append , w = overwrite
     format = '%(asctime)s-%(levelname)s-%(message)s',
     level = logging.INFO

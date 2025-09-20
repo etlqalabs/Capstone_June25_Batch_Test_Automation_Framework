@@ -12,7 +12,7 @@ import logging
 
 # Logging configuration
 logging.basicConfig(
-    filename="LogFile/etljob.log",
+    filename="LogFile/data_quality_test.log",
     filemode='a', # a for append , w = overwrite
     format = '%(asctime)s-%(levelname)s-%(message)s',
     level = logging.INFO

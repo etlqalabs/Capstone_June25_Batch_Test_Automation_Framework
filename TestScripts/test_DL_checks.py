@@ -11,7 +11,7 @@ from CommonUtilities.utilities import verify_expected_as_file_to_actual_as_db, v
     verify_expected_as_s3_to_actual_as_db, download_sales_file_from_Linux
 
 logging.basicConfig(
-    filename="LogFiles/etljob.log",
+    filename="LogFiles/data_loading_test.log",
     filemode='w', # a for append , w = overwrite
     format = '%(asctime)s-%(levelname)s-%(message)s',
     level = logging.INFO
@@ -19,6 +19,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
+@pytest.mark.smoke
 def test_DL_Sales_summary_checks(conect_to_mysql_database):
     try:
         logger.info("Test case for Sales summary data load check has started..")
@@ -31,7 +32,7 @@ def test_DL_Sales_summary_checks(conect_to_mysql_database):
         pytest.fail("Test case for  Sales summary data load check has failed..")
 
 
-
+@pytest.mark.smoke
 def test_DL_fact_sales_checks(conect_to_mysql_database):
     try:
         logger.info("Test case for fact sales check has started..")
@@ -45,7 +46,7 @@ def test_DL_fact_sales_checks(conect_to_mysql_database):
         logger.error("Test case for fact sales check caused problem..")
         pytest.fail("Test case for fact sales check has failed..")
 
-
+@pytest.mark.smoke
 def test_DL_fact_inventory_checks(conect_to_mysql_database):
     try:
         logger.info("Test case for fact inventory check has started..")
@@ -57,7 +58,7 @@ def test_DL_fact_inventory_checks(conect_to_mysql_database):
         logger.error("Test case for fact inventory check caused problem..")
         pytest.fail("Test case for fact inventory check has failed..")
 
-
+@pytest.mark.smoke
 def test_DL_inventory_level_by_store_checks(conect_to_mysql_database):
     try:
         logger.info("Test case for  inventory_level_by_store check has started..")

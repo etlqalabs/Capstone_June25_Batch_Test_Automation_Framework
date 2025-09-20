@@ -11,7 +11,7 @@ from CommonUtilities.utilities import verify_expected_as_file_to_actual_as_db, v
     verify_expected_as_s3_to_actual_as_db, download_sales_file_from_Linux
 
 logging.basicConfig(
-    filename="LogFiles/etljob.log",
+    filename="LogFiles/data_extraction_test.log",
     filemode='a', # a for append , w = overwrite
     format = '%(asctime)s-%(levelname)s-%(message)s',
     level = logging.INFO
@@ -21,6 +21,7 @@ logger = logging.getLogger(__name__)
 
 # supplier data extraction test case
 @pytest.mark.regression
+@pytest.mark.order(5)
 def test_DE_supplier_data_to_staging(conect_to_mysql_database):
     try:
         logger.info("Test case for supplier data extraction has started..")
@@ -34,6 +35,7 @@ def test_DE_supplier_data_to_staging(conect_to_mysql_database):
 # Inventory data extraction test case
 @pytest.mark.regression
 @pytest.mark.smoke
+@pytest.mark.order(4)
 def test_DE_inventory_data_to_staging(conect_to_mysql_database):
     try:
         logger.info("Test case for inventory data extraction has started..")
@@ -46,6 +48,7 @@ def test_DE_inventory_data_to_staging(conect_to_mysql_database):
 
 # Stores data extraction test case
 @pytest.mark.regression
+@pytest.mark.order(3)
 def test_DE_stores_data_to_staging(conect_to_oracle_database,conect_to_mysql_database):
     try:
         logger.info("Test case for Stores data extraction has started..")
@@ -60,6 +63,7 @@ def test_DE_stores_data_to_staging(conect_to_oracle_database,conect_to_mysql_dat
 @pytest.mark.regression
 @pytest.mark.smoke
 # product data extraction test case
+@pytest.mark.order(2)
 def test_DE_product_data_to_staging(conect_to_mysql_database):
     try:
         logger.info("Test case for product data extraction has started..")
@@ -75,7 +79,7 @@ def test_DE_product_data_to_staging(conect_to_mysql_database):
 
 # sales data from Linux server
 @pytest.mark.smoke
-
+@pytest.mark.order(1)
 def test_DE_Sales_data_to_staging(conect_to_mysql_database):
     try:
         logger.info("Test case for Sales data extraction has started..")

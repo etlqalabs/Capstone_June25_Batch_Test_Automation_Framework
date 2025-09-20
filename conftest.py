@@ -8,7 +8,7 @@ import logging
 
 # Logging configuration
 logging.basicConfig(
-    filename="LogFiles/etljob.log",
+    filename="LogFiles/conftest.log",
     filemode='a', # a for append , w = overwrite
     format = '%(asctime)s-%(levelname)s-%(message)s',
     level = logging.INFO

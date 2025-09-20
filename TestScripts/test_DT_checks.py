@@ -11,7 +11,7 @@ from CommonUtilities.utilities import verify_expected_as_file_to_actual_as_db, v
     verify_expected_as_s3_to_actual_as_db, download_sales_file_from_Linux
 
 logging.basicConfig(
-    filename="LogFiles/etljob.log",
+    filename="LogFiles/data_transformation_test.log",
     filemode='a', # a for append , w = overwrite
     format = '%(asctime)s-%(levelname)s-%(message)s',
     level = logging.INFO
@@ -19,6 +19,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
+@pytest.mark.smoke
 def test_DT_Filter_checks(conect_to_mysql_database):
     try:
         logger.info("Test case for Filter transfromaiton check has started..")
@@ -30,7 +31,7 @@ def test_DT_Filter_checks(conect_to_mysql_database):
         logger.error("Test case for Filter transfromaiton check caused problem..")
         pytest.fail("Test case for Filter transfromaiton check has failed..")
 
-
+@pytest.mark.smoke
 def test_DT_Router_High_checks(conect_to_mysql_database):
     try:
         logger.info("Test case for Router High transfromaiton check has started..")
@@ -43,7 +44,7 @@ def test_DT_Router_High_checks(conect_to_mysql_database):
         pytest.fail("Test case for Router High transfromaiton check has failed..")
 
 
-
+@pytest.mark.smoke
 def test_DT_Router_Low_checks(conect_to_mysql_database):
     try:
         logger.info("Test case for Router Low transfromaiton check has started..")
@@ -55,7 +56,7 @@ def test_DT_Router_Low_checks(conect_to_mysql_database):
         logger.error("Test case for Router Low transfromaiton check caused problem..")
         pytest.fail("Test case for Router Low transfromaiton check has failed..")
 
-
+@pytest.mark.smoke
 def test_DT_Aggregator_sales_data_checks(conect_to_mysql_database):
     try:
         logger.info("Test case for Aggregator - Sales transfromaiton check has started..")
@@ -68,7 +69,7 @@ def test_DT_Aggregator_sales_data_checks(conect_to_mysql_database):
         logger.error("Test case for Aggregator - Sales transfromaiton check caused problem..")
         pytest.fail("Test case for Aggregator - Sales transfromaiton check has failed..")
 
-
+@pytest.mark.smoke
 def test_DT_Joiner_sales_product_stores_checks(conect_to_mysql_database):
     try:
         logger.info("Test case for Joiner_sales_product_stores transfromaiton check has started..")
